@@ -1,0 +1,5 @@
+x = input("10")
+y = input("20")
+X = int(x)
+y = int(y)
+print(x + y)
