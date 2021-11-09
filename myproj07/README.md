@@ -6,6 +6,9 @@
 새로운 목록을 생성
 
 ```python
-map(make_power, rage(1, 10))
+def make_power(number):
+    return number ** 2
 
+for number in map(make_power, range(1, 10)):
+    print(number)
 ```
