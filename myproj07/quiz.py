@@ -10,7 +10,7 @@ def mysum3(x, y, z):
 # 가변인자
 
 
-def mysum(x, y, *args):  # 최소 2개 이상 받고 싶을 때, 인자 x, y 추가
+def mysum(x, y, *args):  # 최소 2개 이상 받고 싶을 때, 인자 x, y 추가 (*은 무제한 인자를 받을 때 붙임)
     #args in tuple
     print("args :", args)
     return x + y + sum(args) + 10
