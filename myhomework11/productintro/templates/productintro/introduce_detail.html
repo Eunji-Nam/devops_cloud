@@ -1,0 +1,14 @@
+{% extends "productintro/layout.html" %}
+
+{% block content %}
+    <h2>{{ introduce.product_name }}</h2>
+
+    {% if introduce.photo %}
+        <img src="{{ introduce.photo.url }}" style="max-width: 100%;" />
+    {% endif %}
+
+    {{ introduce.content|linebreaks }}
+
+    <hr />
+    {{ introduce.updated_at }}
+{% endblock %}

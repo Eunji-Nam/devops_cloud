@@ -1,0 +1,19 @@
+{% extends "productintro/layout.html" %}
+
+{% block content %}
+
+    <form action="" method="get">
+        <input type="text" name="q" value="{{ request.GET.q }}" />
+        <input type="submit" value="검색" />
+    </form>
+
+    <ul>
+         {% for Introduce in introduce_list %}
+            <li>
+                <a href="/productintro/{{ Introduce.pk }}/">
+                    {{ Introduce.product_name }}
+                </a>
+            </li>
+         {% endfor %}
+     </ul>
+{% endblock %}
