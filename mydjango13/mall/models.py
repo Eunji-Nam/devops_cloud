@@ -3,7 +3,8 @@ from django.db import models
 
 
 class Shop(models.Model):
-    # id = models.BigAutoField(primary_key=True)  -- 굳이 설정할 필요 없음
+    # id = models.BigAutoField(primary_key=True)
+    # -- 장고에서는 id를 데이터에 대한 address로 여겨서 자동으로 생기기 떄문에 굳이 설정할 필요 없음
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     telephone = models.CharField(max_length=13, )
