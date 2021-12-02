@@ -14,7 +14,7 @@ def make_response(received_text: str) -> str:
 
     response_text = "\n".join([post["title"] for post in post_list])
 
-    return  response_text
+    return response_text
 
 
 def naver_search(query):
