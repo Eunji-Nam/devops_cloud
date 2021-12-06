@@ -3,8 +3,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from mall.views import shop_list, shop_detail
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('mall/', shop_list),
+    path('mall/<int:pk>/', shop_detail)
 ]
 
 if settings.DEBUG:
