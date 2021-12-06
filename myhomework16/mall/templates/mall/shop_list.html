@@ -1,0 +1,31 @@
+{% extends "mall/layout.html" %}
+
+{% block comtent %}
+    <form action="" method="get">
+        <input type="text" name="q" value="{{ request.GET.q }}"/>
+        <input type="submit" value="검색"/>
+    </form>
+
+
+    <div class="row">
+        {% for Shop in shop_list %}
+            <div class="col-sm-3">
+                <div class="card">
+                    <a href="/mall/{{ Shop.pk }}">
+                        <img src="{{ Shop.photo.url }}" class="card-img-top" alt="{{ Shop.name }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ Shop.name }}</h5>
+                        <p class="card-text">
+                            {{ Shop.category }}
+                        </p>
+                        <p class="card-text">
+                            {{ Shop.price }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

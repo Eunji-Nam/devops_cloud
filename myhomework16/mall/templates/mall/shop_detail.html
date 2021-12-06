@@ -1,0 +1,15 @@
+{% extends "mall/layout.html" %}
+
+{% block comtent %}
+    <h2>{{ shop.name }}</h2>
+
+    {% if shop.photo %}
+        <img src="{{ shop.photo.url }}">
+    {% endif %}
+
+    {{ shop.content|linebreaks }}
+
+    <hr/>
+    {{ shop.created_at }}
+
+{% endblock %}
