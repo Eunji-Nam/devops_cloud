@@ -1,0 +1,34 @@
+{% extends "mall/layout.html" %}
+
+{% block content %}
+    <form action="" method="get">
+        <input type="text" name="q" value="{{ request.GET.q }}">
+        <input type="submit" value="검색"/>
+    </form>
+    <div class="row">
+        {% for Shop in shop_list %}
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 my-3">
+                <div class="card">
+                    <a href="/mall/{{ Shop.pk }}/">
+                        <img src="{{ Shop.photo_thumb.url }}" class="card-img-top" alt="{{ Shop.name }}">
+                    </a>
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ Shop.name }}
+                        </h5>
+                        <p class="card-text">
+                            {{ Shop.category }}
+                        </p>
+                        <p class="card-text">
+                            {{ Shop.price }}원
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
