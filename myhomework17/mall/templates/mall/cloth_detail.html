@@ -3,6 +3,16 @@
 {% block content %}
     <h2>{{ cloth.name }}</h2>
 
+    <p>
+    태그:
+    {% for tag in tag_list %}
+        <span class="badge bg-success">
+        {{ tag.category }}
+        </span>
+    {% endfor %}
+
+    </p>
+
     <img src="{{ cloth.photo.url }}"
          alt="{{ cloth.name }}">
 
