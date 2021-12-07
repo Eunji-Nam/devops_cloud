@@ -1,4 +1,7 @@
 from django.db import models
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 from productintro.upload_to import uuid_name_upload_to
 
 product_category = (
@@ -18,5 +21,11 @@ class Introduce(models.Model):
     price = models.PositiveIntegerField()
     content = models.TextField()
     photo = models.ImageField(blank=True, upload_to=uuid_name_upload_to)
+    photo_thumb = ImageSpecField(
+        source='photo',
+        processors=[ResizeToFill(400, 200)],
+        format="JPEG",
+        options={"quality": 60},
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
