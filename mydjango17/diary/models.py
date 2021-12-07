@@ -25,6 +25,7 @@ class Post(TimestampedModel):
 
 class Comment(TimestampedModel):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    # post_id라는 이름의 외래키 필드가 생김
     author_name = models.CharField(max_length=20)
     message = models.TextField()
     
