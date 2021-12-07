@@ -15,4 +15,8 @@ def cloth_list(request: HttpRequest) -> HttpResponse:
 
 def cloth_detail(request: HttpRequest, pk: int) -> HttpResponse:
     cloth = Cloth.objects.get(pk=pk)
-    return render(request, "mall/cloth_detail.html", {})
+    review_list = cloth.review_set.all()
+    return render(request, "mall/cloth_detail.html", {
+        "cloth": cloth,
+        "review_list": review_list,
+    })
