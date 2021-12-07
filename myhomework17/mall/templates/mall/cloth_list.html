@@ -1,0 +1,9 @@
+{% extends "mall/layout.html" %}
+
+{% block content %}
+
+    {% for cloth in cloth_list %}
+        {{ cloth.name }}
+    {% endfor %}
+
+{% endblock %}
