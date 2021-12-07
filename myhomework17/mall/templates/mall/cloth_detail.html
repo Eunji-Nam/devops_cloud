@@ -1,0 +1,15 @@
+{% extends "mall/layout.html" %}
+
+{% block content %}
+    <h2>{{ cloth.name }}</h2>
+
+    <img src="{{ cloth.photh.url }}"
+         alt="{{ cloth.name }}">
+
+    {{ cloth.content|linebreaks }}
+
+    <a href="{% url "mall:cloth_list" %}">
+    목록으로
+    </a>
+
+{% endblock %}

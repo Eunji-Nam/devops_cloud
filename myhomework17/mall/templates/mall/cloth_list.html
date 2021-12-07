@@ -3,7 +3,9 @@
 {% block content %}
 
     {% for cloth in cloth_list %}
-        {{ cloth.name }}
+        <a href="{% url "mall:cloth_detail" cloth.pk %}">
+            {{ cloth.name }}
+        </a>
     {% endfor %}
 
 {% endblock %}
