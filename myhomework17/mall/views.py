@@ -23,3 +23,10 @@ def cloth_detail(request: HttpRequest, pk: int) -> HttpResponse:
         "tag_list": tag_list,
     })
 
+def tag_detail(request: HttpRequest, tag_category: str) -> HttpResponse:
+    qs = Cloth.objects.all()
+    qs = qs.filter(tag_set__category=tag_category)
+    return render(request, "mall/tag_detail.html", {
+        "tag_category": tag_category,
+        "cloth_list":qs,
+    })

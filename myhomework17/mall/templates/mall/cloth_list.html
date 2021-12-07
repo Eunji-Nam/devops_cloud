@@ -1,11 +1,28 @@
 {% extends "mall/layout.html" %}
 
 {% block content %}
+    <div class="row">
+        {% for cloth in cloth_list %}
+            <div class="col-sm-3">
+                <div class="card">
+                    <img src="{{ cloth.photo.url }}"
+                         class="card-img-top"
+                         alt="{{ cloth.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ cloth.name }}</h5>
+                        <p class="card-text">
+                            {{ cloth.colot }}
+                        </p>
+                        <p class="card-text">
+                            {{ cloth.price }}원
+                        </p>
+                        <a href="{% url "mall:cloth_detail" cloth.pk %}"
+                           class="btn btn-primary">상세보기</a>
+                    </div>
+                </div>
+            </div>
 
-    {% for cloth in cloth_list %}
-        <a href="{% url "mall:cloth_detail" cloth.pk %}">
-            {{ cloth.name }}
-        </a>
-    {% endfor %}
+        {% endfor %}
+    </div>
 
 {% endblock %}
