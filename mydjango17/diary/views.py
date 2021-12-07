@@ -5,6 +5,9 @@ from diary.models import Post
 
 def post_list(request: HttpRequest) -> HttpResponse:
     qs = Post.objects.all()
+    q = request.GET.get("q", "")
+    if q:
+        qs = qs.filter(title__icontains=q)
     return render(request, "diary/post_list.html", {
         "post_list": qs,
     })
