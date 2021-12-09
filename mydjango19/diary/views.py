@@ -36,7 +36,7 @@ def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
 
 
 def post_new(request: HttpRequest) -> HttpResponse:
-    if request.method == "POST":
+    if request.method == "POST":  # 빈 서식
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
@@ -44,7 +44,7 @@ def post_new(request: HttpRequest) -> HttpResponse:
             post.save()
             messages.success(request, "성공적으로 저장했습니다.")
             return redirect("diary:post_list")
-    else:
+    else:   # 입력값을 전달받아 유효성 검사 -> 저장
         form = PostForm()
 
     return render(request, "diary/post_form.html", {
