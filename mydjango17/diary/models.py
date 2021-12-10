@@ -13,7 +13,7 @@ class Post(TimestampedModel):
     author_name = models.CharField(max_length=20)
     title = models.CharField(max_length=200, db_index=True)
     content = models.TextField()
-    photo = models.ImageField(blank=True, upload_to="diary/post/%y/%m/%d")
+    photo = models.ImageField(blank=True, upload_to="diary/post/%Y/%m/%d")
     tag_set = models.ManyToManyField('Tag', blank=True)
 
     def __str__(self):
