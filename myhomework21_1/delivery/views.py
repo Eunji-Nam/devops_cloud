@@ -9,3 +9,10 @@ def shop_list(request: HttpRequest) -> HttpResponse:
     return render(request, "delivery/shop_list.html", {
         "shop_list": qs,
     })
+
+
+def shop_detail(request: HttpRequest, pk: int) -> HttpResponse:
+    shop = Shop.objects.get(pk=pk)
+    return render(request, "delivery/shop_detail.html", {
+        "shop": shop,
+    })

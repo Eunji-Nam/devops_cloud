@@ -3,11 +3,8 @@
 
 {% block content %}
     {% for shop in shop_list %}
-        <h2>{{ shop.name }}</h2>
-
-        {{ shop.description|linebreaks }}
-
-        <hr/>
-        {{ shop.create_at }}
+        <a href="{% url "delivery:shop_detail" shop.pk %}">
+        {{ shop.name }}
+        </a>
     {% endfor %}
 {% endblock %}
