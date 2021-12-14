@@ -1,11 +1,16 @@
 {% extends "delivery/layout.html" %}
 
 {% block content %}
+
+
     <h2>{{ shop.name }}</h2>
 
     {{ shop.description|linebreaks }}
     {{ shop.telephone }}
+
     <hr/>
-    {{ shop.created_at }}
+    {{ shop.created_at|timesince }} 전
+
+    <a href="{% url "delivery:shop_edit" shop.pk %}" class="btn btn-primary">수정하기</a>
 
 {% endblock %}

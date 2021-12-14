@@ -1,3 +1,5 @@
+{% load bootstrap5 %}
+
 <!doctype html>
 <html lang="ko">
 <head>
@@ -6,17 +8,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>배달의 뭉지🏍</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
 <body>
+<div class="container">
+    <div class="mb-3">
+        <h2>🏍배달의 뭉지🏍</h2>
+    </div>
 
-<h2>🏍배달의 뭉지🏍</h2>
-
-{% block content %}
-{% endblock %}
 
 
-<hr/>
-&copy; 2021. Mungji company.
+
+    {% block content %}
+    {% endblock %}
+
+
+    <hr/>
+    &copy; 2021. Mungji company.
+
+</div>
 
 </body>
 </html>
