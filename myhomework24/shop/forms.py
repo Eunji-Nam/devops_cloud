@@ -8,3 +8,8 @@ class ShopForm(forms.ModelForm):
         model = Shop
         fields = "__all__"
 
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = "__all__"
