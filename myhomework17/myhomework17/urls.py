@@ -11,7 +11,7 @@ def root(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mall/', include('mall.urls')),
-    path('', root, name="root")
+    path('', root, name="root"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
@@ -20,5 +20,5 @@ urlpatterns += static(settings.MEDIA_URL,
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
-        path('__debug__', include(debug_toolbar.urls))
+        path('__debug__', include(debug_toolbar.urls)),
     ]

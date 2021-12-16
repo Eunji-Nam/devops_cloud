@@ -1,11 +1,13 @@
 from django.db import models
 
+
 class TimestampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
+
 
 class Cloth(TimestampedModel):
     name = models.CharField(max_length=20, db_index=True)
@@ -23,6 +25,7 @@ class Cloth(TimestampedModel):
         verbose_name = "상품"
         verbose_name_plural = "상품목록"
 
+
 class Review(TimestampedModel):
     cloth = models.ForeignKey(Cloth, on_delete=models.CASCADE)
     author_name = models.CharField(max_length=20)
@@ -31,6 +34,7 @@ class Review(TimestampedModel):
     class Meta:
         verbose_name = "리뷰"
         verbose_name_plural = "리뷰목록"
+
 
 class Tag(TimestampedModel):
     category = models.CharField(max_length=10, db_index=True)

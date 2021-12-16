@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from mall.models import Cloth
 from mall.form import ClothForm
 
@@ -31,7 +31,6 @@ def cloth_new(request: HttpRequest) -> HttpResponse:
          form = ClothForm(request.POST, request.FILES)
          if form.is_valid():
              saved_post = form.save()
-
              # shop_detail 뷰를 구현했다면,
              return redirect("mall:cloth_detail", saved_post.pk)
     else:
@@ -40,6 +39,19 @@ def cloth_new(request: HttpRequest) -> HttpResponse:
         "form": form,
     })
 
+
+def cloth_edit(request: HttpRequest, pk: int) -> HttpResponse:
+    cloth = get_object_or_404(Cloth, pk=pk)
+    if request.method == "POST":
+         form = ClothForm(request.POST, request.FILES, instance=cloth)
+         if form.is_valid():
+             saved_post = form.save()
+             return redirect("mall:cloth_detail", saved_post.pk)
+    else:
+        form = ClothForm(instance=cloth)
+    return render(request, "mall/cloth_form.html", {
+        "form": form,
+    })
 
 
 def tag_detail(request: HttpRequest, tag_category: str) -> HttpResponse:

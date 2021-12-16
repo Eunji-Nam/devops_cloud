@@ -1,0 +1,13 @@
+{% extends "mall/layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <h2>Cloth Form</h2>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="저장하기">
+    </form>
+
+{% endblock %}
