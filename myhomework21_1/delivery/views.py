@@ -11,7 +11,7 @@ def shop_list(request: HttpRequest) -> HttpResponse:
 
     category_id = request.GET.get("category_id")
     if category_id:
-        qs= qs.filter(category__pk=category_id)
+        qs = qs.filter(category__pk=category_id)
 
     query = request.GET.get("query", "")
     if query:
