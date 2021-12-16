@@ -8,6 +8,7 @@ from shop.models import Shop, Review, Tag, Category
 class CategoryAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Shop)
 class ShopAdmin(admin.ModelAdmin):
     form = ShopForm
