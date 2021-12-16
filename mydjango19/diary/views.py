@@ -93,6 +93,8 @@ def comment_new(request: HttpRequest, post_pk: int) -> HttpResponse:
     })
 
 
+
+
 # /diary/100/comments/20/edit/
 def comment_edit(request: HttpRequest, post_pk: int, pk: int) -> HttpResponse:
     comment = get_object_or_404(Comment, pk=pk)

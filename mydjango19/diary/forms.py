@@ -25,6 +25,7 @@ class PostForm(forms.ModelForm):
             "tag_set"
         ]
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
