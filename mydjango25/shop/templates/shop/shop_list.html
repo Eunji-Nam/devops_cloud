@@ -2,7 +2,11 @@
 
 
 {% block content %}
-    {{ category_list }}
+    {% for category in category_list %}
+        <span class="badge bg-info">
+        {{ category.name }}
+        </span>
+    {% endfor %}
 
     <table class="table table-bordered table-hover">
         <thead>
