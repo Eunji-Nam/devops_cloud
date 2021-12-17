@@ -4,11 +4,11 @@
     <h2>{{ shop.name }}</h2>
 
     <p>
-    {% for tag in shop.tag_set.all %}
-        {{ tag.name }}
-    {% empty %}
-        등록된 태그가 없습니다.
-    {% endfor %}
+        {% for tag in shop.tag_set.all %}
+            {{ tag.name }}
+        {% empty %}
+            등록된 태그가 없습니다.
+        {% endfor %}
     </p>
 
     {% if shop.photo %}
@@ -26,9 +26,14 @@
 
     {% for review in shop.review_set.all %}
         <div>
-        {{ review.message }}
-        by {{ review.user }}
-        at {{ review.created_at|timesince }} 전
+            {{ review.message }}
+            by {{ review.user }}
+            at {{ review.created_at|timesince }} 전
+            {% if review.user == request.user %}
+                <a href="{% url "shop:review_edit" shop.pk review.pk %}">
+                    Edit
+                </a>
+            {% endif %}
         </div>
     {% empty %}
         등록된 리뷰가 없습니다.
