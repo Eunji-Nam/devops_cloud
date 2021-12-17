@@ -18,6 +18,8 @@ class Category(TimestampedModel):
 
     class Meta:
         ordering = ["name"]
+        verbose_name = "카테고리"
+        verbose_name_plural = "카테고리 목록"
 
 
 class Shop(TimestampedModel):
@@ -34,6 +36,8 @@ class Shop(TimestampedModel):
 
     class Meta:
         ordering = ["-id"]
+        verbose_name = "가게"
+        verbose_name_plural = "가게 목록"
 
 
 class Review(TimestampedModel):
@@ -46,6 +50,8 @@ class Review(TimestampedModel):
 
     class Meta:
         ordering = ["-id"]
+        verbose_name = "리뷰"
+        verbose_name_plural = "리뷰 목록"
 
 
 class Tag(TimestampedModel):
@@ -56,3 +62,5 @@ class Tag(TimestampedModel):
 
     class Meta:
         ordering = ["name"]
+        verbose_name = "태그"
+        verbose_name_plural = "태그 목록"
