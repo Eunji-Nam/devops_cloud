@@ -8,10 +8,12 @@ const { melon_data: song_array } = require("./melon_data");
 // Array의 filter와 map 활용
 // 출력포맷 : [곡명1, 곡명2, 곡명3]
 
-const BTS_Song = song_array.filter(song => song.artist === "방탄소년단");
+const BTS_Song = song_array
+    .filter(({ artist }) => artist === "방탄소년단")
+    .map(({ title }) => title);
 
-const BTS_strSong = BTS_Song.map(
-    song => song.title
-)
+// const BTS_Song = song_array
+//     .filter(song => song.artist === "방탄소년단")
+//     .map(song => song.title);
 
-console.log(BTS_strSong)
+console.log(BTS_Song)

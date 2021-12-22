@@ -10,7 +10,13 @@ const { melon_data: song_array } = require("./melon_data");
 // ref: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
 
-const BTS_song = song_array.filter(song => song.artist === "방탄소년단");
+const BTS_song = song_array
+    .filter(song => song.artist === "방탄소년단");
+// => 다음값이 true인지 false인지 리턴함 
+
+// const BTS_song = song_array
+// .filter(({ artist }) => artist === "방탄소년단"); 로 변경 가능
+
 
 for (const song of BTS_song) {
     console.log(song.artist, song.title, song.like);

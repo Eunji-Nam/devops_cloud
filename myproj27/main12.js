@@ -7,26 +7,20 @@ const { melon_data: song_array } = require("./melon_data");
 // TODO: #12 2곡 이상 랭크된 가수는 총 몇 팀인가요?
 // reduce, Set
 
+const artist_count_object = song_array
+    .reduce((acc, { artist }) => {
+        // if(!acc[artist]) acc[artist] = 0;
+        acc[artist] ||= 0
+        // i = i || 0
+        // i ||= 0
+        acc[artist] += 1
+        return acc;
+    }, {});
 
-// const artistOver2 = song_array;
-
-// const countedNames = artistOver2.reduce(function (allNames, name) {
-//     if (name in allNames) {
-//         allNames[name]++;
-//     }
-//     else {
-//         allNames[name] = 1;
-//     }
-//     return allNames;
-// }, {});
-// console.log(countedNames)
-
+Object.value(artist_count_object) // 값만 출력
+    .filter(number => number >= 2)
 
 
-// const artist_set = new Set()
-
-// for (const song of song_array) {
-//     artist_set.add(song.artist)
-// }
-
-// console.log(artist_set)
+    //python version
+    //if artist not in acc:
+    //  acc[artist] = 0

@@ -8,8 +8,10 @@ const { melon_data: song_array } = require("./melon_data");
 // Array의 filter 활용
 // 출력포맷 : `[좋아요수] 곡명 가수명`
 
-const LikeOver20 = song_array.filter(song => song.like >= 200000);
+const LikeOver20 = song_array.filter(song => song.like >= 200_000);
 
 for (const song of LikeOver20) {
     console.log(`[${song.like}]`, song.title, song.artist);
 }
+
+
