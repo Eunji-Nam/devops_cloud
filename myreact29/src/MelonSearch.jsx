@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Input } from 'antd';
+import { List, Avatar } from 'antd';
 import Axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
 
@@ -61,10 +62,19 @@ function MelonSearch() {
       />
       {songList.map((song) => {
         return (
-          <div key={song.SONGID}>
-            <img src={song.ALBUMIMG} />
-            {song.SONGNAME} by {song.ARTISTNAME}
-          </div>
+          <List
+            itemLayout="horizontal"
+            dataSource={songList}
+            renderItem={(song) => (
+              <List.Item>
+                <List.Item.Meta
+                  avatar={<Avatar src={song.ALBUMIMG} />}
+                  title={song.SONGNAME}
+                  description={song.ARTISTNAME}
+                />
+              </List.Item>
+            )}
+          />
         );
       })}
     </div>
