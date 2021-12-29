@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Input } from 'antd';
+import { Input, notification, Typography } from 'antd';
 import { List, Avatar } from 'antd';
 import Axios from 'axios';
 import jsonpAdapter from 'axios-jsonp';
@@ -41,13 +41,24 @@ function MelonSearch() {
         console.log(searchedSongList);
         console.log(response);
         console.groupEnd();
-
         setSongList(searchedSongList);
+
+        const type = 'success';
+        notification[type]({
+          message: '멜론 검색',
+          description: `${searchedSongList.length}개의 노래 검색결과가 있습니다.`,
+        });
       })
       .catch((error) => {
         console.group('멜론 검색 에러');
         console.error(error);
         console.groupEnd();
+
+        notification.error({
+          message: '멜론 검색 에러',
+          // 주의: 유저 친화적인 에러 메세지는 아닙니다.
+          description: JSON.stringify(error),
+        });
       });
   };
 
@@ -60,23 +71,38 @@ function MelonSearch() {
         onChange={handleChange}
         onPressEnter={handlePressEnter}
       />
-      {songList.map((song) => {
+      <List
+        itemLayout="horizontal"
+        dataSource={songList}
+        renderItem={(song) => {
+          return (
+            <List.Item>
+              <List.Item.Meta avatar={<Avatar src={song.ALBUMIMG} />} />
+              <Typography.Text
+                onClick={() => {
+                  console.log(`clicked ${JSON.stringify(song)}`);
+                }}
+              >
+                <a
+                  href={`https://www.melon.com/song/detail.htm?songId=${song.SONGID}`}
+                  target={'_blank'}
+                >
+                  {song.SONGNAME}
+                </a>
+              </Typography.Text>
+            </List.Item>
+          );
+        }}
+      />
+      );
+      {/* {songList.map((song) => {
         return (
-          <List
-            itemLayout="horizontal"
-            dataSource={songList}
-            renderItem={(song) => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={<Avatar src={song.ALBUMIMG} />}
-                  title={song.SONGNAME}
-                  description={song.ARTISTNAME}
-                />
-              </List.Item>
-            )}
-          />
+          <div key={song.SONGID}>
+            <img src={song.ALBUMIMG} />
+            {song.SONGNAME} by {song.ARTISTNAME}
+          </div>
         );
-      })}
+      })} */}
     </div>
   );
 }
