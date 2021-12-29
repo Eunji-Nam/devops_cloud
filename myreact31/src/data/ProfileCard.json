@@ -1,0 +1,50 @@
+[
+    {
+        "memberID": "member1",
+        "profileImage": "/image/member1.jpg",
+        "name": "DCODELAB",
+        "role": "UI/UX INTERACTIVE DEVELOPER",
+        "facebookUrl": "https://www.facebook.com/dcodelab80",
+        "email": "hadaboni80@naver.com"
+    },
+    {
+        "memberID": "member2",
+        "profileImage": "/image/member2.jpg",
+        "name": "DOROTHY",
+        "role": "Python",
+        "facebookUrl": "https://www.facebook.com/dorothy123",
+        "email": "python123@gmail.com"
+    },
+    {
+        "memberID": "member3",
+        "profileImage": "/image/member3.jpg",
+        "name": "JOHN",
+        "role": "Django",
+        "facebookUrl": "https://www.facebook.com/john43",
+        "email": "django43@kakao.com"
+    },
+    {
+        "memberID": "member4",
+        "profileImage": "/image/member4.jpg",
+        "name": "NICK",
+        "role": "react",
+        "facebookUrl": "https://www.facebook.com/nick098",
+        "email": "react098@nate.com"
+    },
+    {
+        "memberID": "member5",
+        "profileImage": "/image/member2.jpg",
+        "name": "JANE",
+        "role": "JavaScript",
+        "facebookUrl": "https://www.facebook.com/JANE11",
+        "email": "js11@naver.com"
+    },
+    {
+        "memberID": "member6",
+        "profileImage": "/image/member2.jpg",
+        "name": "KATHERINE",
+        "role": "DevOpe",
+        "facebookUrl": "https://www.facebook.com/KATHERINE31",
+        "email": "devope31@hanmail.net"
+    }
+]
