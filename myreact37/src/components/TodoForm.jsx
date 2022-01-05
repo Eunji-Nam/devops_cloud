@@ -10,8 +10,13 @@ function TodoForm({ fieldValues, handleChange, handleSubmit }) {
       <h2 className="text-lg unterline">Todo Form</h2>
 
       <select onChange={handleChange} name="color" value={fieldValues.color}>
-        <option>blue</option>
-        <option>red</option>
+        <option>Maroon</option>
+        <option>RoyalBlue</option>
+        <option>SeaGreen</option>
+        <option>Indigo</option>
+        <option>DarkViolet</option>
+        <option>OrangeRed</option>
+        <option>IndianRed</option>
       </select>
 
       <input

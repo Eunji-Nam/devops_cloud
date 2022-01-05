@@ -5,9 +5,9 @@ import { useState } from 'react';
 import useFieldValues from '../hooks/useFieldValues';
 
 const INITIAL_STATE = [
-  { content: '2022년에는 취업하기', color: 'blue' },
-  { content: '파이썬 복습하기', color: 'red' },
-  { content: '리액트 복습하기', color: 'red' },
+  { content: '2022년', color: 'Indigo' },
+  { content: '파이썬', color: 'Maroon' },
+  { content: '리액트', color: 'Maroon' },
 ];
 
 function TodoList() {
@@ -15,7 +15,7 @@ function TodoList() {
 
   const [fieldValues, handleChange, clearFieldValues] = useFieldValues({
     content: '',
-    color: 'red',
+    color: 'Indigo',
   });
 
   const removeTodo = (todoIndex) => {
