@@ -1,0 +1,7 @@
+.todo {
+  background-color: rgb(192, 232, 245);
+}
+
+.todo:hover {
+  background-color: blue;
+}
