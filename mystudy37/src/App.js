@@ -1,8 +1,14 @@
-import PageTodoList from 'pages/PageTodoList';
+import PageReviewList from 'pages/PageReviewList';
+// import PageTodoList from 'pages/PageTodoList';
 import './App.css';
 
 function App() {
-  return <PageTodoList />;
+  return (
+    <div>
+      <PageReviewList />
+      {/* <PageTodoList /> */}
+    </div>
+  );
 }
 
 export default App;
