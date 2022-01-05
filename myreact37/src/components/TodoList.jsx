@@ -2,18 +2,21 @@ import Todo from './Todo';
 import './TodoList.css';
 import TodoForm from './TodoForm';
 import { useState } from 'react';
-import useFieldValues from 'hooks/useFieldValues';
+import useFieldValues from '../hooks/useFieldValues';
 
 const INITIAL_STATE = [
-  { content: '2022년에는 취업하기' },
-  { content: '파이썬 복습하기' },
-  { content: '리액트 복습하기' },
+  { content: '2022년에는 취업하기', color: 'blue' },
+  { content: '파이썬 복습하기', color: 'red' },
+  { content: '리액트 복습하기', color: 'red' },
 ];
 
 function TodoList() {
   const [todoList, setTodoList] = useState(INITIAL_STATE);
 
-  const [fieldValues, handleChange] = useFieldValues();
+  const [fieldValues, handleChange, clearFieldValues] = useFieldValues({
+    content: '',
+    color: 'red',
+  });
 
   const removeTodo = (todoIndex) => {
     setTodoList((prevTodoList) =>
@@ -21,35 +24,39 @@ function TodoList() {
     );
   };
 
-  //   const changedInputText = (e) => {
-  //     setInputText(e.target.value);
-  //   };
+  const appendTodo = () => {
+    console.log('새로운 todo를 추가하겠습니다');
 
-  //   const appendInputText = (e) => {
-  //     console.log('e.key :', e.key);
-  //     if (e.key === 'Enter') {
-  //       // todoList 배열 끝에 inputText 추가
-  //       // inputText 다시 비우기
-  //       console.log('inputText :', inputText);
+    const todo = { ...fieldValues };
 
-  //       //setTodoList 에 함수를 넘기는 것.
-  //       //todoList 상탯값을 변경하는 것이 아님. (배열의 push 사용 X)
+    // setter에 값 지정 방식
+    // setTodoList([...todoList, todo]);
 
-  //       setTodoList((prevTodoList) => {
-  //         return [...prevTodoList, { content: inputText }];
-  //       });
+    // setter에 함수 지정 방식
+    setTodoList((prevTodoList) => [...prevTodoList, todo]);
 
-  //       setInputText('');
-  //     }
-  //   };
+    clearFieldValues();
+  };
 
   return (
     <div className="todo_list">
       <h2>Todo List</h2>
-      <TodoForm handleChange={handleChange} />
+      <TodoForm
+        fieldValues={fieldValues}
+        handleChange={handleChange}
+        handleSubmit={appendTodo}
+      />
 
       <hr />
       {JSON.stringify(fieldValues)}
+
+      <button
+        className="bg-red-500 text-gray-100 cursor-point"
+        onClick={() => clearFieldValues()}
+      >
+        clear
+      </button>
+
       {/* <input
         type="text"
         value={inputText}

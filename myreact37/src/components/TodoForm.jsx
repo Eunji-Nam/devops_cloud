@@ -1,22 +1,29 @@
-function TodoForm({ handleChange }) {
+function TodoForm({ fieldValues, handleChange, handleSubmit }) {
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
   return (
-    <div>
-      <h2>Todo Form</h2>
+    <div className="border-2 border-red-500 p-3">
+      <h2 className="text-lg unterline">Todo Form</h2>
+
+      <select onChange={handleChange} name="color" value={fieldValues.color}>
+        <option>blue</option>
+        <option>red</option>
+      </select>
 
       <input
         type="text"
         className="border-2 border-gray-200"
         onChange={handleChange}
+        onKeyPress={handleKeyPress}
         name="content"
+        value={fieldValues.content}
       />
 
-      <select onChange={handleChange} name="color">
-        <option>Amber</option>
-        <option>Orange</option>
-        <option>Yellow</option>
-      </select>
-
-      <hr />
+      <button onClick={() => handleSubmit()}>저장</button>
     </div>
   );
 }
